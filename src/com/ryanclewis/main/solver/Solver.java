@@ -35,8 +35,6 @@ public class Solver {
             boolean didFillAnyCellsThisIteration = tryToSolveAnyCell(workingBoard);
             if (!didFillAnyCellsThisIteration)
                 return guessACell(workingBoard);
-
-            workingBoard.setNoneJustAdded();
         }
 
         return workingBoard;

@@ -11,14 +11,11 @@ public class BoardParser {
         String[] rowsAsAscii = boardAsAscii.split("\n");
         _board.setSize(rowsAsAscii.length / 2);
         int asciiRowNumber = 0;
-        for (String rowAsAscii : rowsAsAscii)
-        {
+        for (String rowAsAscii : rowsAsAscii) {
             parseAsciiRow(rowAsAscii, asciiRowNumber);
             asciiRowNumber++;
         }
-
         _board.populateGroups();
-        _board.setNoneJustAdded();
         return _board;
     }
 

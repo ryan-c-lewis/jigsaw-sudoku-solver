@@ -5,7 +5,6 @@ import java.util.HashMap;
 public class Cell {
     private CellLocation _location;
     private int _value = 0;
-    private boolean _justAdded = false;
 
     private Board _board; // blah do i really want to do this? seems lazy
     private HashMap<Direction, Boolean> _isConnected = new HashMap<>();
@@ -24,7 +23,6 @@ public class Cell {
         Cell cellCopy = new Cell(newBoard, _location);
         cellCopy.setNumber(_value);
         cellCopy.setIsConnected(_isConnected);
-        cellCopy.setJustAdded(_justAdded);
         return cellCopy;
     }
 
@@ -34,7 +32,6 @@ public class Cell {
 
     public void setNumber(int value) {
         _value = value;
-        _justAdded = true;
     }
 
     public int getNumber() {
@@ -59,14 +56,6 @@ public class Cell {
         if (neighborX < 0 || neighborX >= _board.getSize() || neighborY < 0 || neighborY >= _board.getSize())
             return null;
         return _board.getCell(neighborX, neighborY);
-    }
-
-    public boolean getJustAdded() {
-        return _justAdded;
-    }
-
-    public void setJustAdded(boolean justAdded) {
-        _justAdded = justAdded;
     }
 
     public String toString() {

@@ -145,14 +145,6 @@ public class Board {
         }
     }
 
-    public void setNoneJustAdded() {
-        for (Cell[] row : _cells) {
-            for (Cell cell : row) {
-                cell.setJustAdded(false);
-            }
-        }
-    }
-
     public String toShortString() {
         StringBuilder builder = new StringBuilder();
         for (int y = 0; y < _size; y++) {
@@ -177,10 +169,7 @@ public class Board {
             for (int x = 0; x < _size; x++) {
                 int number = getCell(x, y).getNumber();
                 if (number > 0)
-                    if (getCell(x, y).getJustAdded())
-                        builder.append(">").append(number).append("<");
-                    else
-                        builder.append(" ").append(number).append(" ");
+                    builder.append(" ").append(number).append(" ");
                 else
                     builder.append("   ");
 
