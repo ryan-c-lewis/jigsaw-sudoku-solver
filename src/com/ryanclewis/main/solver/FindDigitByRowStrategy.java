@@ -7,7 +7,7 @@ import com.ryanclewis.main.board.PossibleChoicesForCell;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class SearchByRowStrategy implements ISolveStrategy {
+public class FindDigitByRowStrategy implements ISolveStrategy {
     public boolean runStrategy(Board workingBoard) {
         for (int y = 0; y < workingBoard.getSize(); y++) {
             HashMap<Integer, ArrayList<Cell>> possibleCellsPerDigit = new HashMap<>();

@@ -11,10 +11,8 @@ class SolverTest {
 
     private void assertSolutionIs(String resourceFileName, String solutionAsShortString) throws Exception {
         Board board = BoardParser.parse(TestHelper.loadResource(resourceFileName));
-        Board solvedBoard = new Solver().solve(board);
-        assertEquals(
-                solutionAsShortString,
-                solvedBoard.toShortString());
+        Board solvedBoard = Solver.solve(board);
+        assertEquals(solutionAsShortString, solvedBoard.toShortString());
     }
 
     @Test

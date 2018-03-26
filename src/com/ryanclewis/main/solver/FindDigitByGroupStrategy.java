@@ -6,7 +6,7 @@ import com.ryanclewis.main.board.Group;
 
 import java.util.ArrayList;
 
-public class SearchByGroupStrategy implements ISolveStrategy {
+public class FindDigitByGroupStrategy implements ISolveStrategy {
     public boolean runStrategy(Board workingBoard) {
         return checkDigitsForGroups(workingBoard);
     }
