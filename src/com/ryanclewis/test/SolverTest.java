@@ -38,4 +38,10 @@ class SolverTest {
         assertSolutionIs("board4.txt",
                 "892345176261479538754861329473586291915234867328917654536198742147652983689723415");
     }
+
+    @Test
+    void unsolvable() throws Exception {
+        assertSolutionIs("board5.txt",
+                "1030020430100402");
+    }
 }
