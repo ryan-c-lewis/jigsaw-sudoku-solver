@@ -1,8 +1,7 @@
 package com.ryanclewis.main.solver;
 
 import com.ryanclewis.main.board.Board;
-import com.ryanclewis.main.board.Cell;
-import javafx.util.Pair;
+import com.ryanclewis.main.board.PossibleChoicesForCell;
 
 import java.util.ArrayList;
 
@@ -46,13 +45,11 @@ public class Solver {
     }
 
     private Board guessACell(Board workingBoard) {
-        ArrayList<Pair<Cell, ArrayList<Integer>>> possibleGuesses = SolveHelpers.getValidDigitsForAllSquares(workingBoard);
-        for (Pair<Cell, ArrayList<Integer>> possibleGuess : possibleGuesses) {
-            Cell possibleCell = possibleGuess.getKey();
-            ArrayList<Integer> possibleNumbers = possibleGuess.getValue();
-            for (int possibleNumber : possibleNumbers) {
+        ArrayList<PossibleChoicesForCell> possibleGuesses = PossibleChoicesForCell.getForAllCells(workingBoard);
+        for (PossibleChoicesForCell possibleGuess : possibleGuesses) {
+            for (int possibleNumber : possibleGuess.getNumbers()) {
                 Board boardCopy = workingBoard.copy();
-                boardCopy.getCell(possibleCell.getLocation()).setNumber(possibleNumber);
+                boardCopy.getCell(possibleGuess.getCell().getLocation()).setNumber(possibleNumber);
                 Board maybeSolvedBoard = new Solver().solve(boardCopy);
                 if (maybeSolvedBoard.isComplete())
                     return maybeSolvedBoard;

@@ -2,6 +2,7 @@ package com.ryanclewis.main.solver;
 
 import com.ryanclewis.main.board.Board;
 import com.ryanclewis.main.board.Cell;
+import com.ryanclewis.main.board.PossibleChoicesForCell;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,8 +17,8 @@ public class SearchByRowStrategy implements ISolveStrategy {
             for (int x = 0; x < workingBoard.getSize(); x++) {
                 if (workingBoard.getCell(x, y).getNumber() != 0)
                     continue;
-                ArrayList<Integer> validDigits = SolveHelpers.getValidDigitsForSquare(workingBoard, x, y);
-                for (int d : validDigits) {
+                PossibleChoicesForCell validDigits = PossibleChoicesForCell.getForParticularCell(workingBoard, x, y);
+                for (int d : validDigits.getNumbers()) {
                     possibleCellsPerDigit.get(d).add(workingBoard.getCell(x, y));
                 }
             }
